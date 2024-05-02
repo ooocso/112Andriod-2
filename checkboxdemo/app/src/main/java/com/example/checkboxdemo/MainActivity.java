@@ -53,17 +53,20 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
              @Override
              public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                  //TextView output = (TextView) findViewById(R.id.lblOutput);
+                 TextView txvStatus = (TextView) findViewById(R.id.txvStatus);
                  int id = buttonView.getId();
                  String str = "";
-                 //if (id == R.id.chkOriginal){
-                 //    output.setText("你點的是原味  \n");
-                 //}
-                 //if (id == R.id.chkBeef){
-                 //    output.setText("你點的是牛肉  \n");
-                 //}
-                 //if (id == R.id.chkSeafood){
-                 //    output.setText("你點的是海鮮  \n");
-                 //}
+                 String status = "";
+                 if (id == R.id.chkOriginal){
+                     status = (isChecked? "選取" : "取消")+"原味  ";
+                 }
+                 else if (id == R.id.chkBeef){
+                     status = (isChecked? "選取" : "取消")+"牛肉  ";
+                 }
+                 else if (id == R.id.chkSeafood){
+                     status = (isChecked? "選取" : "取消")+"海鮮  ";
+                 }
+                 txvStatus.setText(status);
                  for (int i : chkIDs){
                      CheckBox chk = (CheckBox) findViewById(i);
                      if (chk.isChecked())
